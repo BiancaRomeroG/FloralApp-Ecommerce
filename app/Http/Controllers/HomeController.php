@@ -9,24 +9,9 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $response = Http::get('https://floralappapi2.azurewebsites.net/api/products')->json();
+        $apiUrl = config('apiUrl');
+        $response = Http::get($apiUrl . 'products');
         $data = $response['data'];
         return view('home', compact('data'));
-    }
-
-    public function show($id)
-    {
-    }
-
-    public function edit($id)
-    {
-    }
-
-    public function update(Request $request, $id)
-    {
-    }
-
-    public function destroy($id)
-    {
     }
 }

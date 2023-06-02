@@ -6,7 +6,7 @@
             <div class="row align-items-center">
                 <div class="col-lg-2 col-xl-2 col-md-6 col-6 col-custom">
                     <div class="header-logo d-flex align-items-center">
-                        <a href="index.html">
+                        <a href="{{ route('home') }}">
                             <img class="img-full" src="assets/images/logo/logo.png" alt="Header Logo">
                         </a>
                     </div>
@@ -50,10 +50,30 @@
                         </ul>
                     </nav>
                 </div>
-                
-                <!-- Cart -->
-                @include('components.cart')
+                <div class="col-lg-2 col-md-6 col-6 col-custom">
+                    <div class="header-right-area main-nav">
+                        <ul class="nav">
 
+                            <!-- Cart -->
+                            @include('components.cart')
+
+                            <li class="account-menu-wrap d-none d-lg-flex">
+                                <form action="{{ route('logout') }}" method="POST">
+                                    @csrf
+                                    <button type="submit" class="off-canvas-menu-btn">
+                                        <i class="fa fa-sign-out"></i>
+                                    </button>
+                                </form>
+                            </li>
+                            
+                            <li class="mobile-menu-btn d-lg-none">
+                                <a class="off-canvas-btn" href="#">
+                                    <i class="fa fa-bars"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -141,133 +161,33 @@
                 <!-- mobile menu end -->
                 <div class="offcanvas-widget-area">
                     <div class="switcher">
-                        <div class="language">
-                            <span class="switcher-title">Language: </span>
-                            <div class="switcher-menu">
-                                <ul>
-                                    <li><a href="#">English</a>
-                                        <ul class="switcher-dropdown">
-                                            <li><a href="#">German</a></li>
-                                            <li><a href="#">French</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
+                        <div class="top-info-wrap text-left text-black">
+                            <ul class="address-info">
+                                <li>
+                                    <i class="fa fa-phone"></i>
+                                    <a href="info%40yourdomain.html">(1245) 2456 012</a>
+                                </li>
+                                <li>
+                                    <i class="fa fa-envelope"></i>
+                                    <a href="info%40yourdomain.html">info@yourdomain.com</a>
+                                </li>
+                            </ul>
+                            <div class="widget-social">
+                                <a class="facebook-color-bg" title="Facebook-f" href="#"><i
+                                        class="fa fa-facebook-f"></i></a>
+                                <a class="twitter-color-bg" title="Twitter" href="#"><i
+                                        class="fa fa-twitter"></i></a>
+                                <a class="linkedin-color-bg" title="Linkedin" href="#"><i
+                                        class="fa fa-linkedin"></i></a>
+                                <a class="youtube-color-bg" title="Youtube" href="#"><i
+                                        class="fa fa-youtube"></i></a>
+                                <a class="vimeo-color-bg" title="Vimeo" href="#"><i
+                                        class="fa fa-vimeo"></i></a>
                             </div>
-                        </div>
-                        <div class="currency">
-                            <span class="switcher-title">Currency: </span>
-                            <div class="switcher-menu">
-                                <ul>
-                                    <li><a href="#">$ USD</a>
-                                        <ul class="switcher-dropdown">
-                                            <li><a href="#">€ EUR</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="top-info-wrap text-left text-black">
-                        <ul class="address-info">
-                            <li>
-                                <i class="fa fa-phone"></i>
-                                <a href="info%40yourdomain.html">(1245) 2456 012</a>
-                            </li>
-                            <li>
-                                <i class="fa fa-envelope"></i>
-                                <a href="info%40yourdomain.html">info@yourdomain.com</a>
-                            </li>
-                        </ul>
-                        <div class="widget-social">
-                            <a class="facebook-color-bg" title="Facebook-f" href="#"><i
-                                    class="fa fa-facebook-f"></i></a>
-                            <a class="twitter-color-bg" title="Twitter" href="#"><i
-                                    class="fa fa-twitter"></i></a>
-                            <a class="linkedin-color-bg" title="Linkedin" href="#"><i
-                                    class="fa fa-linkedin"></i></a>
-                            <a class="youtube-color-bg" title="Youtube" href="#"><i
-                                    class="fa fa-youtube"></i></a>
-                            <a class="vimeo-color-bg" title="Vimeo" href="#"><i class="fa fa-vimeo"></i></a>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </aside>
-    <!-- off-canvas menu end -->
-    <!-- off-canvas menu start -->
-    <aside class="off-canvas-menu-wrapper" id="sideMenu">
-        <div class="off-canvas-overlay"></div>
-        <div class="off-canvas-inner-content">
-            <div class="off-canvas-inner">
-                <div class="btn-close-off-canvas">
-                    <i class="fa fa-times"></i>
-                </div>
-                <!-- offcanvas widget area start -->
-                <div class="offcanvas-widget-area">
-                    <ul class="menu-top-menu">
-                        <li><a href="about-us.html">About Us</a></li>
-                    </ul>
-                    <p class="desc-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua. <br> Ut enim ad minim veniam, quis nostrud
-                        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. <br> Duis aute irure dolor
-                        in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-                        occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    </p>
-                    <div class="switcher">
-                        <div class="language">
-                            <span class="switcher-title">Language: </span>
-                            <div class="switcher-menu">
-                                <ul>
-                                    <li><a href="#">English</a>
-                                        <ul class="switcher-dropdown">
-                                            <li><a href="#">German</a></li>
-                                            <li><a href="#">French</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="currency">
-                            <span class="switcher-title">Currency: </span>
-                            <div class="switcher-menu">
-                                <ul>
-                                    <li><a href="#">$ USD</a>
-                                        <ul class="switcher-dropdown">
-                                            <li><a href="#">€ EUR</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="top-info-wrap text-left text-black">
-                        <ul class="address-info">
-                            <li>
-                                <i class="fa fa-phone"></i>
-                                <a href="info%40yourdomain.html">(1245) 2456 012</a>
-                            </li>
-                            <li>
-                                <i class="fa fa-envelope"></i>
-                                <a href="info%40yourdomain.html">info@yourdomain.com</a>
-                            </li>
-                        </ul>
-                        <div class="widget-social">
-                            <a class="facebook-color-bg" title="Facebook-f" href="#"><i
-                                    class="fa fa-facebook-f"></i></a>
-                            <a class="twitter-color-bg" title="Twitter" href="#"><i
-                                    class="fa fa-twitter"></i></a>
-                            <a class="linkedin-color-bg" title="Linkedin" href="#"><i
-                                    class="fa fa-linkedin"></i></a>
-                            <a class="youtube-color-bg" title="Youtube" href="#"><i
-                                    class="fa fa-youtube"></i></a>
-                            <a class="vimeo-color-bg" title="Vimeo" href="#"><i class="fa fa-vimeo"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <!-- offcanvas widget area end -->
-            </div>
-        </div>
     </aside>
     <!-- off-canvas menu end -->
 </header>

@@ -6,8 +6,6 @@
     <!-- Header -->
     @include('components.header')
 
-    {{-- <p>Mensaje: {{ $data['message'] }}</p> --}}
-
     <!-- Slider/Intro Section Start -->
     <div class="intro11-slider-wrap section-2">
         <div class="intro11-slider swiper-container">
@@ -108,8 +106,8 @@
                 <!--Section Title Start-->
                 <div class="col-12 col-custom">
                     <div class="section-title text-center mb-30">
-                        <span class="section-title-1">The Most Trendy</span>
-                        <h3 class="section-title-3">Featured Products</h3>
+                        <span class="section-title-1">Los mas vendidos</span>
+                        <h3 class="section-title-3">Productos destacados</h3>
                     </div>
                 </div>
                 <!--Section Title End-->
@@ -118,9 +116,9 @@
                 <div class="col-12 col-custom">
                     <div class="product-slider swiper-container anime-element-multi">
                         <div class="swiper-wrapper">
-
+                            {{count($data)}}
                             @php
-                                $chunks = array_chunk($data, 4);
+                                $chunks = array_chunk($data, 2);
                             @endphp
 
                             @foreach ($chunks as $chunk)
@@ -130,8 +128,8 @@
                                         <div class="single-product position-relative mb-30">
                                             <div class="product-image">
                                                 <a class="d-block" href="product-details.html">
-                                                    <img src="{{ $product['photo'] }}"
-                                                        alt="" class="product-image-1 w-100"
+                                                    <img src="{{ $product['photo'] }}" alt=""
+                                                        class="product-image-1 w-100"
                                                         onerror="this.onerror=null; this.src='assets/images/product/1.jpg';">
 
                                                 </a>
@@ -173,283 +171,6 @@
                                     @endforeach
                                 </div>
                             @endforeach
-
-
-                            <div class="single-item swiper-slide">
-                                <!--Single Product Start-->
-                                <div class="single-product position-relative mb-30">
-                                    <div class="product-image">
-                                        <a class="d-block" href="product-details.html">
-                                            <img src="assets/images/product/5.jpg" alt=""
-                                                class="product-image-1 w-100">
-                                            <img src="assets/images/product/6.jpg" alt=""
-                                                class="product-image-2 position-absolute w-100">
-                                        </a>
-                                        <div class="add-action d-flex flex-column position-absolute">
-                                            <a href="compare.html" title="Compare">
-                                                <i class="lnr lnr-sync" data-toggle="tooltip" data-placement="left"
-                                                    title="Compare"></i>
-                                            </a>
-                                            <a href="wishlist.html" title="Add To Wishlist">
-                                                <i class="lnr lnr-heart" data-toggle="tooltip" data-placement="left"
-                                                    title="Wishlist"></i>
-                                            </a>
-                                            <a href="#exampleModalCenter" title="Quick View" data-bs-toggle="modal"
-                                                data-bs-target="#exampleModalCenter">
-                                                <i class="lnr lnr-eye" data-toggle="tooltip" data-placement="left"
-                                                    title="Quick View"></i>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="product-content">
-                                        <div class="product-title">
-                                            <h4 class="title-2"> <a href="product-details.html">Blossom bouquet flower</a>
-                                            </h4>
-                                        </div>
-                                        <div class="product-rating">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star-o"></i>
-                                            <i class="fa fa-star-o"></i>
-                                        </div>
-                                        <div class="price-box">
-                                            <span class="regular-price ">$80.00</span>
-                                            <span class="old-price"><del>$90.00</del></span>
-                                        </div>
-                                        <a href="cart.html" class="btn product-cart">Add to Cart</a>
-                                    </div>
-                                </div>
-                                <!--Single Product End-->
-                                <!--Single Product Start-->
-                                <div class="single-product position-relative mb-30">
-                                    <div class="product-image">
-                                        <a class="d-block" href="product-details.html">
-                                            <img src="assets/images/product/2.jpg" alt=""
-                                                class="product-image-1 w-100">
-                                            <img src="assets/images/product/1.jpg" alt=""
-                                                class="product-image-2 position-absolute w-100">
-                                        </a>
-                                        <div class="add-action d-flex flex-column position-absolute">
-                                            <a href="compare.html" title="Compare">
-                                                <i class="lnr lnr-sync" data-toggle="tooltip" data-placement="left"
-                                                    title="Compare"></i>
-                                            </a>
-                                            <a href="wishlist.html" title="Add To Wishlist">
-                                                <i class="lnr lnr-heart" data-toggle="tooltip" data-placement="left"
-                                                    title="Wishlist"></i>
-                                            </a>
-                                            <a href="#exampleModalCenter" title="Quick View" data-bs-toggle="modal"
-                                                data-bs-target="#exampleModalCenter">
-                                                <i class="lnr lnr-eye" data-toggle="tooltip" data-placement="left"
-                                                    title="Quick View"></i>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="product-content">
-                                        <div class="product-title">
-                                            <h4 class="title-2"> <a href="product-details.html">Orchid flower red
-                                                    stick</a></h4>
-                                        </div>
-                                        <div class="product-rating">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star-o"></i>
-                                            <i class="fa fa-star-o"></i>
-                                        </div>
-                                        <div class="price-box">
-                                            <span class="regular-price ">$80.00</span>
-                                            <span class="old-price"><del>$90.00</del></span>
-                                        </div>
-                                        <a href="cart.html" class="btn product-cart">Add to Cart</a>
-                                    </div>
-                                </div>
-                                <!--Single Product End-->
-                            </div>
-                            <div class="single-item swiper-slide">
-                                <!--Single Product Start-->
-                                <div class="single-product position-relative mb-30">
-                                    <div class="product-image">
-                                        <a class="d-block" href="product-details.html">
-                                            <img src="assets/images/product/7.jpg" alt=""
-                                                class="product-image-1 w-100">
-                                            <img src="assets/images/product/8.jpg" alt=""
-                                                class="product-image-2 position-absolute w-100">
-                                        </a>
-                                        <div class="add-action d-flex flex-column position-absolute">
-                                            <a href="compare.html" title="Compare">
-                                                <i class="lnr lnr-sync" data-toggle="tooltip" data-placement="left"
-                                                    title="Compare"></i>
-                                            </a>
-                                            <a href="wishlist.html" title="Add To Wishlist">
-                                                <i class="lnr lnr-heart" data-toggle="tooltip" data-placement="left"
-                                                    title="Wishlist"></i>
-                                            </a>
-                                            <a href="#exampleModalCenter" title="Quick View" data-bs-toggle="modal"
-                                                data-bs-target="#exampleModalCenter">
-                                                <i class="lnr lnr-eye" data-toggle="tooltip" data-placement="left"
-                                                    title="Quick View"></i>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="product-content">
-                                        <div class="product-title">
-                                            <h4 class="title-2"> <a href="product-details.html">Rose bouquet white</a>
-                                            </h4>
-                                        </div>
-                                        <div class="product-rating">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star-o"></i>
-                                            <i class="fa fa-star-o"></i>
-                                        </div>
-                                        <div class="price-box">
-                                            <span class="regular-price ">$80.00</span>
-                                            <span class="old-price"><del>$90.00</del></span>
-                                        </div>
-                                        <a href="cart.html" class="btn product-cart">Add to Cart</a>
-                                    </div>
-                                </div>
-                                <!--Single Product End-->
-                                <!--Single Product Start-->
-                                <div class="single-product position-relative mb-30">
-                                    <div class="product-image">
-                                        <a class="d-block" href="product-details.html">
-                                            <img src="assets/images/product/9.jpg" alt=""
-                                                class="product-image-1 w-100">
-                                            <img src="assets/images/product/2.jpg" alt=""
-                                                class="product-image-2 position-absolute w-100">
-                                        </a>
-                                        <div class="add-action d-flex flex-column position-absolute">
-                                            <a href="compare.html" title="Compare">
-                                                <i class="lnr lnr-sync" data-toggle="tooltip" data-placement="left"
-                                                    title="Compare"></i>
-                                            </a>
-                                            <a href="wishlist.html" title="Add To Wishlist">
-                                                <i class="lnr lnr-heart" data-toggle="tooltip" data-placement="left"
-                                                    title="Wishlist"></i>
-                                            </a>
-                                            <a href="#exampleModalCenter" title="Quick View" data-bs-toggle="modal"
-                                                data-bs-target="#exampleModalCenter">
-                                                <i class="lnr lnr-eye" data-toggle="tooltip" data-placement="left"
-                                                    title="Quick View"></i>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="product-content">
-                                        <div class="product-title">
-                                            <h4 class="title-2"> <a href="product-details.html">Hyacinth white stick</a>
-                                            </h4>
-                                        </div>
-                                        <div class="product-rating">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star-o"></i>
-                                            <i class="fa fa-star-o"></i>
-                                        </div>
-                                        <div class="price-box">
-                                            <span class="regular-price ">$80.00</span>
-                                            <span class="old-price"><del>$90.00</del></span>
-                                        </div>
-                                        <a href="cart.html" class="btn product-cart">Add to Cart</a>
-                                    </div>
-                                </div>
-                                <!--Single Product End-->
-                            </div>
-                            <div class="single-item swiper-slide">
-                                <!--Single Product Start-->
-                                <div class="single-product position-relative mb-30">
-                                    <div class="product-image">
-                                        <a class="d-block" href="product-details.html">
-                                            <img src="assets/images/product/3.jpg" alt=""
-                                                class="product-image-1 w-100">
-                                            <img src="assets/images/product/4.jpg" alt=""
-                                                class="product-image-2 position-absolute w-100">
-                                        </a>
-                                        <div class="add-action d-flex flex-column position-absolute">
-                                            <a href="compare.html" title="Compare">
-                                                <i class="lnr lnr-sync" data-toggle="tooltip" data-placement="left"
-                                                    title="Compare"></i>
-                                            </a>
-                                            <a href="wishlist.html" title="Add To Wishlist">
-                                                <i class="lnr lnr-heart" data-toggle="tooltip" data-placement="left"
-                                                    title="Wishlist"></i>
-                                            </a>
-                                            <a href="#exampleModalCenter" title="Quick View" data-bs-toggle="modal"
-                                                data-bs-target="#exampleModalCenter">
-                                                <i class="lnr lnr-eye" data-toggle="tooltip" data-placement="left"
-                                                    title="Quick View"></i>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="product-content">
-                                        <div class="product-title">
-                                            <h4 class="title-2"> <a href="product-details.html">Glory of the Snow</a></h4>
-                                        </div>
-                                        <div class="product-rating">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star-o"></i>
-                                            <i class="fa fa-star-o"></i>
-                                        </div>
-                                        <div class="price-box">
-                                            <span class="regular-price ">$80.00</span>
-                                            <span class="old-price"><del>$90.00</del></span>
-                                        </div>
-                                        <a href="cart.html" class="btn product-cart">Add to Cart</a>
-                                    </div>
-                                </div>
-                                <!--Single Product End-->
-                                <!--Single Product Start-->
-                                <div class="single-product position-relative mb-30">
-                                    <div class="product-image">
-                                        <a class="d-block" href="product-details.html">
-                                            <img src="assets/images/product/6.jpg" alt=""
-                                                class="product-image-1 w-100">
-                                            <img src="assets/images/product/5.jpg" alt=""
-                                                class="product-image-2 position-absolute w-100">
-                                        </a>
-                                        <div class="add-action d-flex flex-column position-absolute">
-                                            <a href="compare.html" title="Compare">
-                                                <i class="lnr lnr-sync" data-toggle="tooltip" data-placement="left"
-                                                    title="Compare"></i>
-                                            </a>
-                                            <a href="wishlist.html" title="Add To Wishlist">
-                                                <i class="lnr lnr-heart" data-toggle="tooltip" data-placement="left"
-                                                    title="Wishlist"></i>
-                                            </a>
-                                            <a href="#exampleModalCenter" title="Quick View" data-bs-toggle="modal"
-                                                data-bs-target="#exampleModalCenter">
-                                                <i class="lnr lnr-eye" data-toggle="tooltip" data-placement="left"
-                                                    title="Quick View"></i>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="product-content">
-                                        <div class="product-title">
-                                            <h4 class="title-2"> <a href="product-details.html">Jack in the Pulpit</a>
-                                            </h4>
-                                        </div>
-                                        <div class="product-rating">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star-o"></i>
-                                            <i class="fa fa-star-o"></i>
-                                        </div>
-                                        <div class="price-box">
-                                            <span class="regular-price ">$80.00</span>
-                                            <span class="old-price"><del>$90.00</del></span>
-                                        </div>
-                                        <a href="cart.html" class="btn product-cart">Add to Cart</a>
-                                    </div>
-                                </div>
-                                <!--Single Product End-->
-                            </div>
                         </div>
                         <!-- Slider pagination -->
                         <div class="swiper-pagination default-pagination"></div>
