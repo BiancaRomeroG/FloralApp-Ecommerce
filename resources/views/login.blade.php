@@ -6,23 +6,8 @@
     <!-- Header -->
     @include('components.header')
 
-    <!-- Breadcrumb Area Start Here -->
-    <div class="breadcrumbs-area position-relative">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 text-center">
-                    <div class="breadcrumb-content position-relative section-content">
-                        <h3 class="title-3">Inicio de sesión</h3>
-                        <ul>
-                            <li><a href="{{ route('home') }}">Home</a></li>
-                            <li>Login</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Breadcrumb Area End Here -->
+    <!-- Breadcrumb -->
+    @include('components.breadcrumb')
 
     <!-- Login Area Start Here -->
     <form action="{{ route('login') }}" method="POST">

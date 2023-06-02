@@ -1,6 +1,6 @@
 @extends('layout')
 
-@section('title', 'Home')
+@section('title', 'Inicio')
 
 @section('content')
     <!-- Header -->
@@ -116,7 +116,6 @@
                 <div class="col-12 col-custom">
                     <div class="product-slider swiper-container anime-element-multi">
                         <div class="swiper-wrapper">
-                            {{count($data)}}
                             @php
                                 $chunks = array_chunk($data, 2);
                             @endphp
@@ -164,7 +163,13 @@
                                                 <div class="price-box">
                                                     <span class="regular-price ">Bs. {{ $product['price'] }}</span>
                                                 </div>
-                                                <a href="cart.html" class="btn product-cart">Agregar al carrito</a>
+
+                                                <form action="{{ route('cart.add') }}" method="POST">
+                                                    @csrf
+                                                    <input type="hidden" name="productId" value="{{ $product['id'] }}">
+                                                    <input type="hidden" name="quantity" value="1" min="1">
+                                                    <button class="btn product-cart">Agregar al carrito</button>
+                                                </form>
                                             </div>
                                         </div>
                                         <!--Single Product End-->

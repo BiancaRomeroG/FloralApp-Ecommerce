@@ -6,23 +6,8 @@
     <!-- Header -->
     @include('components.header')
 
-    <!-- Breadcrumb Area Start Here -->
-    <div class="breadcrumbs-area position-relative">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 text-center">
-                    <div class="breadcrumb-content position-relative section-content">
-                        <h3 class="title-3">Nueva cuenta</h3>
-                        <ul>
-                            <li><a href="{{ route('home') }}">Home</a></li>
-                            <li>Registro</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Breadcrumb Area End Here -->
+    <!-- Breadcrumb -->
+    @include('components.breadcrumb')
 
     <!-- Register Area Start Here -->
     <form action="{{ route('register') }}" method="POST">
