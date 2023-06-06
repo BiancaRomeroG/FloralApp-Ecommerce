@@ -17,7 +17,8 @@
         @foreach ($cartItems as $productId => $item)
             <div class="single-cart-item">
                 <div class="cart-img">
-                    <a href="cart.html"><img src="{{ $item['photo'] }}" alt=""></a>
+                    <a href="cart.html"><img src="{{ $item['photo'] }}" alt=""
+                            onerror="this.onerror=null; this.src='assets/images/product/1.jpg';"></a>
                 </div>
                 <div class="cart-text">
                     <h5 class="title"><a href="cart.html">{{ $item['name'] }}</a></h5>
@@ -32,8 +33,13 @@
             </div>
         @endforeach
         <div class="cart-price-total d-flex justify-content-between">
-            <h5>Total :</h5>
-            <h5>Bs. {{ $cartTotal }}</h5>
+            @if (count($cartItems) > 0)
+                <h5>Total :</h5>
+                <h5>Bs. {{ $cartTotal }}</h5>
+            @else
+                <p>No hay productos en el carrito</p>
+            @endif
+
         </div>
         <div class="cart-links d-flex justify-content-between">
             <a class="btn product-cart button-icon flosun-button dark-btn" href="{{ route('cart.show') }}">Ver

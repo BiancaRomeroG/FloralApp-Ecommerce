@@ -20,30 +20,17 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="shop.html">
-                                    <span class="menu-text">Shop</span>
-                                    <i class="fa fa-angle-down"></i>
+                                <a href="{{ route('stores') }}">
+                                    <span class="menu-text">Tiendas</span>
                                 </a>
-                                <div class="mega-menu dropdown-hover">
-                                    <div class="menu-colum">
-                                        <ul>
-                                            <li><span class="mega-menu-text">Shop</span></li>
-                                            <li><a href="shop.html">Shop Left Sidebar</a></li>
-                                            <li><a href="shop-right-sidebar.html">Shop Right Sidebar</a></li>
-                                            <li><a href="shop-list-left.html">Shop List Left Sidebar</a></li>
-                                            <li><a href="shop-list-right.html">Shop List Right Sidebar</a></li>
-                                            <li><a href="shop-fullwidth.html">Shop Full Width</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
                             </li>
                             <li>
-                                <a href="about-us.html">
+                                <a href="">
                                     <span class="menu-text">Sobre nosotros</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="contact-us.html">
+                                <a href="">
                                     <span class="menu-text">Contactanos</span>
                                 </a>
                             </li>

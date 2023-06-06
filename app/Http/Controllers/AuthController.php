@@ -39,12 +39,12 @@ class AuthController extends Controller
         }
 
         $user = $response['data'];
-        $customer = Http::get($apiUrl . 'customers/user/' . $user['id'])['data'];
+        $customerId = Http::get($apiUrl . 'customers/user/' . $user['id'])['data']['id'];
 
         session([
             'user_id' => $user['id'],
             'role' => $user['role'],
-            'customer_id' => $customer['id'],
+            'customer_id' => $customerId,
         ]);
 
         return redirect()->route('home');
@@ -52,6 +52,7 @@ class AuthController extends Controller
 
     public function showRegister()
     {
+        session()->flush();
         return view('register');
     }
 

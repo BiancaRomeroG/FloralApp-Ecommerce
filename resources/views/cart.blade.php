@@ -33,7 +33,9 @@
                                         @foreach ($cart as $productId => $item)
                                             <tr>
                                                 <td class="pro-thumbnail"><a href="#"><img class="img-fluid"
-                                                            src="{{ $item['photo'] }}" alt="Product" /></a></td>
+                                                            src="{{ $item['photo'] }}" alt="Product"
+                                                            onerror="this.onerror=null; this.src='assets/images/product/1.jpg';" /></a>
+                                                </td>
                                                 <td class="pro-title"><a href="#">{{ $item['name'] }}</td>
                                                 <td class="pro-price"><span>Bs. {{ $item['price'] }}</span></td>
                                                 <td class="pro-quantity">
