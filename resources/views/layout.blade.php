@@ -35,6 +35,12 @@
     <!-- Main Style CSS -->
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
 
+    <!-- Leaflet -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
     @livewireScripts
 </head>
 
@@ -52,9 +58,9 @@
     <!-- Bootstrap JS -->
     <script src="assets/js/vendor/bootstrap.bundle.min.js"></script>
 
-    
+
     @livewireScripts
-    
+
     <!-- Swiper Slider JS -->
     <script src="{{ asset('assets/js/plugins/swiper-bundle.min.js') }}"></script>
     <!-- nice select JS -->
@@ -72,4 +78,5 @@
     <script src="{{ asset('assets/js/main.js') }}"></script>
 
 </body>
+
 </html>

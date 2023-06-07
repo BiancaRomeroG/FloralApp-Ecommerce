@@ -8,6 +8,9 @@
                     <ul>
                         <li><a href="{{ route('home') }}">Inicio</a></li>
                         <li>@yield('title')</li>
+                        @hasSection('subtitle')
+                            <li>@yield('subtitle')</li>
+                        @endif
                     </ul>
                 </div>
             </div>

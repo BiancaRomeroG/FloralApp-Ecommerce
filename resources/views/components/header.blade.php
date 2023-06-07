@@ -15,7 +15,7 @@
                     <nav class="main-nav d-none d-lg-flex">
                         <ul class="nav">
                             <li>
-                                <a class="active" href="{{ route('home') }}">
+                                <a href="{{ route('home') }}">
                                     <span class="menu-text"> Inicio</span>
                                 </a>
                             </li>

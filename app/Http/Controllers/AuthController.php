@@ -68,6 +68,11 @@ class AuthController extends Controller
             'email' => 'required|email',
             'password' => 'required',
             'phoneNumber' => 'required',
+            'address' => 'required',
+            'references' => 'required',
+            'city' => 'required',
+            'lat' => 'required',
+            'lng' => 'required',
         ]);
 
         if ($validator->fails()) {
@@ -87,6 +92,19 @@ class AuthController extends Controller
         if (!$response['success']) {
             return redirect()->back()->withErrors('Error en el registrarse')->withInput();
         }
+
+        $customer = $response['data'];
+
+        $response = Http::post($apiUrl . 'userlocations', [
+            'locationName' => 'Principal',
+            'address' => $request->input('address'),
+            'references' => $request->input('references'),
+            'country' => 1,
+            'city' => $request->input('city'),
+            'lat' => $request->input('lat'),
+            'lng' => $request->input('lng'),
+            'userId' => $customer['user']['id'],
+        ]);
 
         return redirect()->route('login')->with('success', 'Registro exitoso. Inicia sesión');
     }

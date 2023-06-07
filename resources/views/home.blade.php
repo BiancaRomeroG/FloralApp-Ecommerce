@@ -13,8 +13,8 @@
                 <div class="intro11-section swiper-slide slide-5 slide-bg-1 bg-position">
                     <!-- Intro Content Start -->
                     <div class="intro11-content-2 text-center">
-                        <h1 class="different-title">Muestra amor</h1>
-                        <h2 class="title text-white">Regala unas flores</h2>
+                        <h1 class="different-title">Regala flores</h1>
+                        <h2 class="title text-white">Demuestra tu amor</h2>
                         <a href="product-details.html" class="btn flosun-button  secondary-btn theme-color rounded-0">Comprar
                             ahora</a>
                     </div>

@@ -4,6 +4,7 @@ use App\Http\Controllers\AccountController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\DeliveryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\StoreController;
@@ -39,6 +40,8 @@ Route::middleware('session.validate')->group(function () {
     Route::get('/products/{id}', [ProductController::class, 'show'])->name('product.show');
 
     Route::get('/account', [AccountController::class, 'index'])->name('account');
+
+    Route::get('/delivery/{orderId}', [DeliveryController::class, 'show'])->name('delivery.show');
 });
 
 Route::get('/login', [AuthController::class, 'showLogin'])->name('login');

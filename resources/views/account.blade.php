@@ -1,3 +1,6 @@
+@php
+    use Carbon\Carbon;
+@endphp
 @extends('layout')
 
 @section('title', 'Mi cuenta')
@@ -10,7 +13,7 @@
     @include('components.breadcrumb')
 
     <!-- my account wrapper start -->
-    <div class="my-account-wrapper mt-no-text">
+    <div class="my-account-wrapper mt-no-text mb-4">
         <div class="container container-default-2 custom-area">
             <div class="row">
                 <div class="col-lg-12 col-custom">
@@ -20,14 +23,12 @@
                         <div class="row">
                             <div class="col-lg-3 col-md-4 col-custom">
                                 <div class="myaccount-tab-menu nav" role="tablist">
-                                    <a href="#orders" data-bs-toggle="tab"><i class="fa fa-cart-arrow-down"></i> Orders</a>
-                                    <a href="#payment-method" data-bs-toggle="tab"><i class="fa fa-credit-card"></i> Payment
-                                        Method</a>
+                                    <a href="#orders" data-bs-toggle="tab"><i class="fa fa-cart-arrow-down"></i> Ordenes de
+                                        compra</a>
                                     <a href="#address-edit" data-bs-toggle="tab"><i class="fa fa-map-marker"></i>
-                                        address</a>
-                                    <a href="#account-info" data-bs-toggle="tab"><i class="fa fa-user"></i> Account
-                                        Details</a>
-                                    <a href="login.html"><i class="fa fa-sign-out"></i> Logout</a>
+                                        Direcciones</a>
+                                    <a href="#account-info" data-bs-toggle="tab"><i class="fa fa-user"></i> Detalles de
+                                        cuenta</a>
                                 </div>
                             </div>
                             <!-- My Account Tab Menu End -->
@@ -38,53 +39,39 @@
                                     <!-- Single Tab Content Start -->
                                     <div class="tab-pane fade" id="orders" role="tabpanel">
                                         <div class="myaccount-content">
-                                            <h3>Orders</h3>
+                                            <h3>Ordenes</h3>
                                             <div class="myaccount-table table-responsive text-center">
                                                 <table class="table table-bordered">
                                                     <thead class="thead-light">
                                                         <tr>
-                                                            <th>Order</th>
-                                                            <th>Date</th>
-                                                            <th>Status</th>
+                                                            <th>Orden</th>
+                                                            <th>Fecha</th>
                                                             <th>Total</th>
-                                                            <th>Action</th>
+                                                            <th>Detalle</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        <tr>
-                                                            <td>1</td>
-                                                            <td>Aug 22, 2022</td>
-                                                            <td>Pending</td>
-                                                            <td>$3000</td>
-                                                            <td><a href="cart.html"
-                                                                    class="btn flosun-button secondary-btn theme-color  rounded-0">View</a>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>2</td>
-                                                            <td>July 22, 2022</td>
-                                                            <td>Approved</td>
-                                                            <td>$200</td>
-                                                            <td><a href="cart.html"
-                                                                    class="btn flosun-button secondary-btn theme-color  rounded-0">View</a>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>3</td>
-                                                            <td>June 12, 2022</td>
-                                                            <td>On Hold</td>
-                                                            <td>$990</td>
-                                                            <td><a href="cart.html"
-                                                                    class="btn flosun-button secondary-btn theme-color  rounded-0">View</a>
-                                                            </td>
-                                                        </tr>
+                                                        @if (count($orders) > 0)
+                                                            @foreach ($orders as $order)
+                                                                <tr>
+                                                                    <td>{{ $order['id'] }}</td>
+                                                                    <td>{{ Carbon::parse($order['timestamp'])->format('M d, Y h:i') }}
+                                                                    </td>
+                                                                    <td>Bs. {{ $order['payment']['amount'] }}</td>
+                                                                    <td><a href="{{ route('delivery.show', $order['id']) }}"
+                                                                            class="btn flosun-button secondary-btn theme-color rounded-0">Ver
+                                                                        </a>
+                                                                </tr>
+                                                            @endforeach
+                                                        @else
+                                                        @endif
+
                                                     </tbody>
                                                 </table>
                                             </div>
                                         </div>
                                     </div>
                                     <!-- Single Tab Content End -->
-
 
                                     <!-- Single Tab Content Start -->
                                     <div class="tab-pane fade" id="payment-method" role="tabpanel">
@@ -98,16 +85,17 @@
                                     <!-- Single Tab Content Start -->
                                     <div class="tab-pane fade" id="address-edit" role="tabpanel">
                                         <div class="myaccount-content">
-                                            <h3>Billing Address</h3>
+                                            <h3>Direccion de entrega</h3>
                                             <address>
-                                                <p><strong>Alex Aya</strong></p>
-                                                <p>1234 Market ##, Suite 900 <br>
-                                                    Lorem Ipsum, ## 12345</p>
-                                                <p>Mobile: (123) 123-456789</p>
+                                                <p><strong>{{ $location['locationName'] }}</strong></p>
+                                                <p>{{ $location['address'] }}<br>
+                                                    {{ $location['references'] }}</p>
+                                                <p>{{ $location['city'] }}</p>
                                             </address>
-                                            <a href="#"
-                                                class="btn flosun-button secondary-btn theme-color  rounded-0"><i
-                                                    class="fa fa-edit mr-2"></i>Edit Address</a>
+                                            <a href="https://www.google.com/maps?q={{ $location['lat'] }},{{ $location['lng'] }}"
+                                                class="btn flosun-button secondary-btn theme-color  rounded-0">Ver en
+                                                mapa</a>
+
                                         </div>
                                     </div>
                                     <!-- Single Tab Content End -->
@@ -115,42 +103,37 @@
                                     <!-- Single Tab Content Start -->
                                     <div class="tab-pane fade" id="account-info" role="tabpanel">
                                         <div class="myaccount-content">
-                                            <h3>Account Details</h3>
+                                            <h3>Mis datos</h3>
                                             <div class="account-details-form">
                                                 <form action="#">
                                                     <div class="row">
                                                         <div class="col-lg-6 col-custom">
                                                             <div class="single-input-item mb-3">
-                                                                <label for="first-name" class="required mb-1">First
-                                                                    Name</label>
+                                                                <label for="first-name" class="required mb-1">Nombre</label>
                                                                 <input type="text" id="first-name"
-                                                                    placeholder="First Name" />
+                                                                    placeholder="First Name"
+                                                                    value="{{ $customer['user']['name'] }}" />
                                                             </div>
                                                         </div>
-                                                        <div class="col-lg-6 col-custom">
+                                                        <div
+                                                            class="col-lg-6
+                                                                    col-custom">
                                                             <div class="single-input-item mb-3">
-                                                                <label for="last-name" class="required mb-1">Last
-                                                                    Name</label>
-                                                                <input type="text" id="last-name"
-                                                                    placeholder="Last Name" />
+                                                                <label for="last-name"
+                                                                    class="required mb-1">Apellido</label>
+                                                                <input type="text" id="last-name" placeholder="Last Name"
+                                                                    value="{{ $customer['user']['lastName'] }}" />
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="single-input-item mb-3">
-                                                        <label for="display-name" class="required mb-1">Display
-                                                            Name</label>
-                                                        <input type="text" id="display-name"
-                                                            placeholder="Display Name" />
-                                                    </div>
-                                                    <div class="single-input-item mb-3">
-                                                        <label for="email" class="required mb-1">Email Addres</label>
-                                                        <input type="email" id="email"
-                                                            placeholder="Email Address" />
+                                                        <label for="email" class="required mb-1">Correo</label>
+                                                        <input type="email" id="email" placeholder="Email Address"
+                                                            value="{{ $customer['user']['email'] }}" />
                                                     </div>
                                                     <div class="single-input-item single-item-button">
                                                         <button
-                                                            class="btn flosun-button secondary-btn theme-color  rounded-0">Save
-                                                            Changes</button>
+                                                            class="btn flosun-button secondary-btn theme-color  rounded-0">Editar</button>
                                                     </div>
                                                 </form>
                                             </div>
