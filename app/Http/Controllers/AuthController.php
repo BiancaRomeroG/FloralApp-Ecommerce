@@ -52,7 +52,11 @@ class AuthController extends Controller
 
     public function showRegister()
     {
-        session()->flush();
+        session()->forget('cart');
+        session()->forget('customer_id');
+        session()->forget('role');
+        session()->forget('user_id');
+
         return view('register');
     }
 
@@ -89,7 +93,11 @@ class AuthController extends Controller
 
     public function logout()
     {
-        session()->flush();
+        session()->forget('cart');
+        session()->forget('customer_id');
+        session()->forget('role');
+        session()->forget('user_id');
+
         return redirect()->route('login');
     }
 }

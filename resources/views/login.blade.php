@@ -3,9 +3,6 @@
 @section('title', 'Login')
 
 @section('content')
-    <!-- Header -->
-    @include('components.header')
-
     <!-- Breadcrumb -->
     @include('components.breadcrumb')
 

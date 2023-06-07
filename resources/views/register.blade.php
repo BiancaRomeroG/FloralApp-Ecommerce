@@ -3,9 +3,6 @@
 @section('title', 'Nueva cuenta')
 
 @section('content')
-    <!-- Header -->
-    @include('components.header')
-
     <!-- Breadcrumb -->
     @include('components.breadcrumb')
 
@@ -39,7 +36,7 @@
                                 </div>
                                 
                                 <div class="single-input-item mb-3">
-                                    <button class="btn flosun-button secondary-btn theme-color rounded-0">Crear</button>
+                                    <button type="submit" class="btn flosun-button secondary-btn theme-color rounded-0">Crear</button>
                                 </div>
                             </form>
                         </div>

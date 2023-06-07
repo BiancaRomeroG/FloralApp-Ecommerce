@@ -12,7 +12,7 @@
     <!-- Checkout Area Start Here -->
     <div class="checkout-area mt-no-text">
         <div class="container custom-container">
-            <form action="{{ route('checkout.show') }}" method="POST">
+            <form action="{{ route('checkout') }}" method="POST">
                 @csrf
                 <div class="row">
                     <div class="col-lg-6 col-12 col-custom">

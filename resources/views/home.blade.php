@@ -126,18 +126,19 @@
                                         <!--Single Product Start-->
                                         <div class="single-product position-relative mb-30">
                                             <div class="product-image">
-                                                <a class="d-block" href="product-details.html">
+                                                <a class="d-block"
+                                                    href="{{ route('product.show', ['id' => $product['id']]) }}">
                                                     <img src="{{ $product['photo'] }}" alt=""
                                                         class="product-image-1 w-100"
                                                         onerror="this.onerror=null; this.src='assets/images/product/1.jpg';">
 
                                                 </a>
                                                 <div class="add-action d-flex flex-column position-absolute">
-                                                    <a href="compare.html" title="Compare">
+                                                    <a href="" title="Compare">
                                                         <i class="lnr lnr-sync" data-toggle="tooltip" data-placement="left"
                                                             title="Compare"></i>
                                                     </a>
-                                                    <a href="wishlist.html" title="Add To Wishlist">
+                                                    <a href="" title="Add To Wishlist">
                                                         <i class="lnr lnr-heart" data-toggle="tooltip" data-placement="left"
                                                             title="Wishlist"></i>
                                                     </a>
@@ -151,7 +152,8 @@
                                             <div class="product-content">
                                                 <div class="product-title">
                                                     <h4 class="title-2"> <a
-                                                            href="product-details.html">{{ $product['name'] }}</a></h4>
+                                                            href="{{ route('product.show', ['id' => $product['id']]) }}">{{ $product['name'] }}</a>
+                                                    </h4>
                                                 </div>
                                                 <div class="product-rating">
                                                     <i class="fa fa-star"></i>
@@ -163,13 +165,7 @@
                                                 <div class="price-box">
                                                     <span class="regular-price ">Bs. {{ $product['price'] }}</span>
                                                 </div>
-
-                                                <form action="{{ route('cart.add') }}" method="POST">
-                                                    @csrf
-                                                    <input type="hidden" name="productId" value="{{ $product['id'] }}">
-                                                    <input type="hidden" name="quantity" value="1" min="1">
-                                                    <button class="btn product-cart">Agregar al carrito</button>
-                                                </form>
+                                                <livewire:add-to-cart-button :product="$product" />
                                             </div>
                                         </div>
                                         <!--Single Product End-->

@@ -7,7 +7,7 @@
                 <div class="col-lg-2 col-xl-2 col-md-6 col-6 col-custom">
                     <div class="header-logo d-flex align-items-center">
                         <a href="{{ route('home') }}">
-                            <img class="img-full" src="assets/images/logo/logo.png" alt="Header Logo">
+                            <img class="img-full" src="{{ asset('assets/images/logo/logo.png') }}" alt="Header Logo">
                         </a>
                     </div>
                 </div>
@@ -40,9 +40,14 @@
                 <div class="col-lg-2 col-md-6 col-6 col-custom">
                     <div class="header-right-area main-nav">
                         <ul class="nav">
-
                             <!-- Cart -->
                             @include('components.cart')
+
+                            <li class="minicart-wrap">
+                                <a href="{{ route('account') }}" class="minicart-btn toolbar-btn">
+                                    <i class="fa fa-user-circle-o"></i>
+                                </a>
+                            </li>
 
                             <li class="account-menu-wrap d-none d-lg-flex">
                                 <form action="{{ route('logout') }}" method="POST">

@@ -35,6 +35,7 @@
     <!-- Main Style CSS -->
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
 
+    @livewireScripts
 </head>
 
 <body>
@@ -51,7 +52,9 @@
     <!-- Bootstrap JS -->
     <script src="assets/js/vendor/bootstrap.bundle.min.js"></script>
 
-
+    
+    @livewireScripts
+    
     <!-- Swiper Slider JS -->
     <script src="{{ asset('assets/js/plugins/swiper-bundle.min.js') }}"></script>
     <!-- nice select JS -->

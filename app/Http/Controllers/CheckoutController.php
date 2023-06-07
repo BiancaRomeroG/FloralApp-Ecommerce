@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Validator;
 
 class CheckoutController extends Controller
 {
-    public function showCheckout()
+    public function index()
     {
         // Obtener el carrito actual de la sesión
         $cart = session()->get('cart', []);
@@ -27,7 +27,7 @@ class CheckoutController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'propietario' => 'required',
-            'numero' => 'required',
+            'numero' => 'required|digits:16',
             'fecha' => 'required|date_format:m/y',
             'cvv' => 'required|digits:3',
         ]);
