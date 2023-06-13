@@ -28,7 +28,6 @@ class CartTotalTable extends Component
         $this->subtotal = array_sum(array_map(function ($item) {
             return $item['quantity'] * $item['price'];
         }, $this->cart));
-        $this->shipping = 0;
     }
     
     public function render()

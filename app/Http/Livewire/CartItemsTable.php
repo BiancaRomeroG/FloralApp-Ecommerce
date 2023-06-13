@@ -23,10 +23,12 @@ class CartItemsTable extends Component
 
     public function decreaseQuantity($productId)
     {
-        $this->cart[$productId]['quantity'] -= 1;
-        session()->put('cart', $this->cart);
+        if ($this->cart[$productId]['quantity'] > 1) {
+            $this->cart[$productId]['quantity'] -= 1;
+            session()->put('cart', $this->cart);
 
-        $this->emit('cartModified');
+            $this->emit('cartModified');
+        }
     }
 
     public function removeFromCart($productId)

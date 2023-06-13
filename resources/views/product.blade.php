@@ -42,17 +42,7 @@
                         </div>
                         <p class="desc-content mb-5">{{ $product['description'] }}</p>
                         <div class="quantity-with_btn mb-5">
-                            <div class="quantity">
-                                <div class="cart-plus-minus">
-                                    <input class="cart-plus-minus-box" value="0" type="text">
-                                    <div class="dec qtybutton">-</div>
-                                    <div class="inc qtybutton">+</div>
-                                </div>
-                            </div>
-                            <div class="add-to_cart">
-                                <a class="btn product-cart button-icon flosun-button dark-btn" href="cart.html">Añadir al
-                                    carrito</a>
-                            </div>
+                            <livewire:add-product-to-cart :product="$product" />
                         </div>
                         <div class="social-share mb-4">
                             <span>Compartir :</span>

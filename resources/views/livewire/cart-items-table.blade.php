@@ -15,24 +15,23 @@
                 <ul>
                     @foreach ($cart as $productId => $item)
                         <tr>
-                            <td class="pro-thumbnail"><a href="#"><img class="img-fluid" src="{{ $item['photo'] }}"
-                                        alt="Product"
+                            <td class="pro-thumbnail"><a href="{{ route('product.show', $productId) }}"><img
+                                        class="img-fluid" src="{{ $item['photo'] }}" alt="Product"
                                         onerror="this.onerror=null; this.src='assets/images/product/1.jpg';" /></a>
                             </td>
-                            <td class="pro-title"><a href="#">{{ $item['name'] }}</td>
+                            <td class="pro-title"><a href="{{ route('product.show', $productId) }}">{{ $item['name'] }}
+                            </td>
                             <td class="pro-price"><span>Bs. {{ $item['price'] }}</span></td>
                             <td class="pro-quantity">
-                                <div class="quantity">
-                                    <div class="cart-plus-minus">
-                                        <input class="cart-plus-minus-box" value="{{ $item['quantity'] }}"
-                                            type="number" min="1">
-                                        <div>
-                                            <button wire:click="increaseQuantity({{ $productId }})"><i
-                                                    class="dec qtybutton">-</i></button>
-                                        </div>
-                                        <button wire:click="decreaseQuantity({{ $productId }})"><i
-                                                class="inc qtybutton">+</i></button>
-                                    </div>
+                                <div style="display: flex; align-items: center;" class="quantity-box">
+                                    <button wire:click="decreaseQuantity({{ $productId }})"
+                                        style="padding: 5px 10px;"><i class="fa fa-minus"
+                                            aria-hidden="true"></i></button>
+                                    <input style="width: 50px; text-align: center;" class="quantity-input"
+                                        value="{{ $item['quantity'] }}" type="number" min="1" disabled>
+                                    <button wire:click="increaseQuantity({{ $productId }})"
+                                        style="padding: 5px 10px;"><i class="fa fa-plus"
+                                            aria-hidden="true"></i></button>
                                 </div>
                             </td>
                             <td class="pro-subtotal">

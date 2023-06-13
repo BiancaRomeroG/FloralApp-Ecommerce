@@ -1,6 +1,6 @@
 @extends('layout')
 
-@section('title', 'Tiendas')
+@section('title', 'Catalogo')
 
 @section('content')
     <!-- Header -->
@@ -9,12 +9,13 @@
     <!-- Breadcrumb -->
     @include('components.breadcrumb')
 
+
     <!-- Shop Main Area Start Here -->
     <div class="shop-main-area">
         <div class="container container-default custom-area">
             <div class="row ">
                 <div class="col-12 col-custom widget-mt">
-                    <h3 class="my-3">Tiendas</h3>
+                    <h3 class="my-3">{{ $catalog['name'] }}</h3>
                     <!--shop toolbar start-->
                     <div class="shop_toolbar_wrapper mb-30">
                         <div class="shop_toolbar_btn">
@@ -36,20 +37,22 @@
                     <!--shop toolbar end-->
                     <!-- Shop Wrapper Start -->
                     <div class="row shop_wrapper grid_3">
-                        @foreach ($data as $store)
+                        @foreach ($catalog['catalogProducts'] as $catalogProduct)
                             <div class="col-md-6 col-sm-6 col-lg-4 col-custom product-area">
                                 <div class="product-item">
                                     <div class="single-product position-relative mr-0 ml-0">
                                         <div class="product-image">
-                                            <a class="d-block" href="{{ route('store.show', $store['id']) }}">
-                                                <img src="{{ $store['logo'] }}" alt="" class="product-image-1 w-100"
+                                            <a class="d-block"
+                                                href="{{ route('product.show', $catalogProduct['product']['id']) }}">
+                                                <img src="{{ $catalogProduct['product']['photo'] }}" alt=""
+                                                    class="product-image-1 w-100"
                                                     onerror="this.onerror=null; this.src='assets/images/brand/1.jpg';">
                                             </a>
                                         </div>
                                         <div class="product-content">
                                             <div class="product-title">
                                                 <h4 class="title-2"> <a
-                                                        href="{{ route('store.show', $store['id']) }}">{{ $store['name'] }}</a>
+                                                        href="{{ route('product.show', $catalogProduct['product']['id']) }}">{{ $catalogProduct['product']['name'] }}</a>
                                                 </h4>
                                             </div>
                                             <div class="product-rating">
@@ -71,6 +74,7 @@
         </div>
     </div>
     <!-- Shop Main Area End Here -->
+
 
     <!-- Footer -->
     @include('components.footer')

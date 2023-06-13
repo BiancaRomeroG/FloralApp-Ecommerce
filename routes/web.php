@@ -3,6 +3,7 @@
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\CatalogController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\DeliveryController;
 use App\Http\Controllers\HomeController;
@@ -36,12 +37,15 @@ Route::middleware('session.validate')->group(function () {
     Route::post('/checkout', [CheckoutController::class, 'payOrder']);
 
     Route::get('/stores', [StoreController::class, 'showStores'])->name('stores');
+    Route::get('/store/{id}', [StoreController::class, 'show'])->name('store.show');
 
     Route::get('/products/{id}', [ProductController::class, 'show'])->name('product.show');
 
     Route::get('/account', [AccountController::class, 'index'])->name('account');
 
     Route::get('/delivery/{orderId}', [DeliveryController::class, 'show'])->name('delivery.show');
+
+    Route::get('/catalog/{id}', [CatalogController::class, 'show'])->name('catalog.show');
 });
 
 Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
